@@ -290,6 +290,13 @@ function operator(pro) {
   jxh(pro);
   numone && oneP(pro);
   blpx && (pro = fampx(pro));
+  // --- 在这里插入新代码 ---
+  // 添加全局前缀序号
+  pro.forEach((node, index) => {
+    const serialNumber = (index + 1).toString().padStart(2, "0");
+    node.name = serialNumber + FGF + node.name;
+  });
+  // --- 新代码结束 ---
   key && (pro = pro.filter((e) => !keyb.test(e.name)));
   return pro;
 }
